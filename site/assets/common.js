@@ -427,25 +427,25 @@
 
   /* ---------- Small view helpers ---------- */
   var ICON = {
-    wiki: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1 3.5h4.2v.8l-1 .2 2.3 6 1.6-3.9-.8-2.1-.9-.2v-.8h4v.8l-1 .2 2.2 6 2-5.8-1.2-.4v-.8H16v.8l-.9.3L12 13h-.8L9.5 8.4 7.6 13h-.8L3.4 4.6l-1-.3z"/></svg>',
-    video: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4 2.8v10.4c0 .6.6.9 1.1.6l8-5.2c.4-.3.4-.9 0-1.2l-8-5.2C4.6 1.9 4 2.2 4 2.8z"/></svg>',
-    photos: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2.5 2h11A1.5 1.5 0 0 1 15 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5v-9A1.5 1.5 0 0 1 2.5 2zm0 1.3a.2.2 0 0 0-.2.2v6.7l3-3 2.6 2.6 1.6-1.6 4.2 4.1V3.5a.2.2 0 0 0-.2-.2zM10.5 4.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>',
-    article: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.5 1h6.4L13 4.1v9.4c0 .8-.7 1.5-1.5 1.5h-8C2.7 15 2 14.3 2 13.5v-11C2 1.7 2.7 1 3.5 1zm0 1.3a.2.2 0 0 0-.2.2v11c0 .1.1.2.2.2h8a.2.2 0 0 0 .2-.2V5h-2.5a.7.7 0 0 1-.7-.7V2.3zM5 8h6v1.3H5zm0 2.7h6V12H5z"/></svg>',
     check: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm3.2 4.3L7 9.5 4.8 7.3l-.9.9L7 11.3l5.1-5.1z"/></svg>',
     search: '<svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M8.5 2a6.5 6.5 0 0 1 5.2 10.4l4 4-1.3 1.3-4-4A6.5 6.5 0 1 1 8.5 2zm0 1.8a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4z"/></svg>'
   };
-  function refsHtml(refs) {
-    if (!refs || !refs.length) return '';
-    return '<ul class="refs" aria-label="Reference links">' + refs.map(function (r) {
-      var icon = ICON[r.type] || ICON.article;
-      return '<li><a href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">' + icon + '<span>' + esc(r.label) + '</span></a></li>';
-    }).join('') + '</ul>';
-  }
+  // A small loading bar for one topic: half full at one game, full at two.
   function meterHtml(count, extraClass) {
-    var full = count >= CFG.target;
-    var segs = '';
-    for (var i = 0; i < CFG.target; i++) segs += '<i class="' + (i < count ? 'on' : '') + '"></i>';
-    return '<span class="meter' + (full ? ' full' : '') + (extraClass ? ' ' + extraClass : '') + '" aria-hidden="true">' + segs + '</span>';
+    var full = count >= CFG.target, p = Math.min(count, CFG.target) / CFG.target * 100;
+    return '<span class="meter' + (full ? ' full' : '') + (extraClass ? ' ' + extraClass : '') + '" style="--p:' + p + '%" aria-hidden="true"><i></i></span>';
+  }
+  // Games toward the goal: each topic needs CFG.target games, and extra games on a complete topic don't add.
+  function progress(list, per) {
+    var have = 0;
+    list.forEach(function (t) { have += Math.min(per && per[t.id] ? per[t.id].count : 0, CFG.target); });
+    var need = list.length * CFG.target;
+    return { have: have, need: need, pct: need ? have / need : 0 };
+  }
+  // Rounded for display, but never 0% once a game is in and never 100% until every topic is complete.
+  function pctText(p) {
+    if (p.need && p.have >= p.need) return '100%';
+    return Math.min(99, Math.max(p.have ? 1 : 0, Math.round(p.pct * 100))) + '%';
   }
   function countText(count) {
     if (count >= CFG.target) return count > CFG.target ? count + ' games' : CFG.target + ' of ' + CFG.target + ' games';
@@ -464,6 +464,6 @@
     normalizeRows: normalizeRows, computeState: computeState, applyOverrides: applyOverrides, reasonText: reasonText, orderCategories: orderCategories, endOfDayPT: endOfDayPT, ptParts: ptParts,
     getPending: getPending, addPending: addPending, prunePending: prunePending, getHistory: getHistory, addHistory: addHistory,
     newSubmissionId: newSubmissionId, postSubmission: postSubmission,
-    refsHtml: refsHtml, meterHtml: meterHtml, countText: countText, chipClass: chipClass
+    meterHtml: meterHtml, countText: countText, chipClass: chipClass, progress: progress, pctText: pctText
   };
 })();

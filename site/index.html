@@ -10,7 +10,7 @@
 <meta property="og:title" content="Creator Topic Board">
 <meta property="og:description" content="100 game topics for Astrocade creators. Pick an open one, make a game, submit the link.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://marktan-astrocade.github.io/creator-topic-board/assets/og-card.png">
+<meta property="og:image" content="https://marktan-astrocade.github.io/creator-topic-board/assets/og-card.png?v=dev">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/astrocade-star128.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,10 +35,14 @@
   <section class="hero wrap" aria-labelledby="hero-title">
     <h1 id="hero-title">100 game topics, two games each</h1>
     <p class="lede">Pick an open topic, make a game on Astrocade, then submit the link. A topic is complete once it has <b>two games</b>.</p>
+    <div class="notice" id="notice" role="status" hidden></div>
+    <div class="loadbar" id="loadbar" role="progressbar" aria-label="Games in across all topics" aria-valuemin="0" aria-valuemax="200" aria-valuetext="Loading">
+      <span class="lb-pct" id="lb-pct" aria-hidden="true"></span>
+      <span class="lb-track" aria-hidden="true"><i class="lb-fill"></i></span>
+    </div>
     <p class="statline" id="statline" aria-live="polite">Loading progress…</p>
     <p class="paceline" id="paceline"></p>
-    <div class="notice" id="notice" role="status" hidden></div>
-    <div class="board" id="board" aria-label="Progress by category"></div>
+    <ul class="board" id="board" aria-label="Progress by category"></ul>
     <div class="latest" id="latest" hidden></div>
   </section>
 
@@ -69,7 +73,6 @@
     <span>Keep it original: no real logos, brand names, team names or famous people’s faces. Questions? Ask the Astrocade community team on Discord.</span>
   </div>
 </footer>
-<div class="tip" id="tip" role="tooltip"></div>
 <noscript><div class="wrap"><p>This page needs JavaScript to show the topics.</p></div></noscript>
 <script src="assets/common.js?v=dev"></script>
 <script src="assets/board.js?v=dev"></script>

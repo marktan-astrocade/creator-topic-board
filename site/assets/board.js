@@ -27,19 +27,7 @@
     });
   }
 
-  /* ---------- Board (hero) ---------- */
-  function tileClass(t) {
-    if (!known()) return 'tile unknown';
-    var c = countOf(t.id), tm = C.timing(t);
-    var cls = 'tile ' + (c >= T ? 's2' : c > 0 ? 's1' : 's0');
-    if (c < T && tm && tm.closed) cls += ' closed';
-    return cls;
-  }
-  function tileLabel(t) {
-    var c = countOf(t.id);
-    var tm = C.timing(t);
-    return t.title + ', ' + (!state ? 'loading' : state.unknown ? 'count unavailable' : C.countText(c)) + (known() && c >= T ? ', complete' : '') + (tm && tm.closed && c < T ? ', date has passed' : '');
-  }
+  /* ---------- Board (hero): one loading bar for all topics, then one per category ---------- */
   function catStats(cat) {
     var done = 0, started = 0, closed = 0;
     cat.topics.forEach(function (t) {
@@ -54,43 +42,44 @@
     var st = catStats(cat);
     return days <= 14 && st.done * 2 < st.total ? ' at-risk' : '';
   }
+  function catDue(cat) {
+    if (cat.nextDue) return C.endOfDayPT(cat.nextDue) < Date.now() ? 'Ship now' : 'Ship by ' + C.fmtDay(cat.nextDue);
+    if (known() && catStats(cat).done === cat.topics.length) return '';
+    return cat.topics.some(function (t) { return t.ship_by; }) ? 'Dates passed' : 'Any time';
+  }
+  function progressOf(list) { return C.progress(list, known() ? state.per : null); }
   function buildBoard() {
-    var html = cats.map(function (cat) {
-      return '<div class="board-row' + catRisk(cat) + '" data-cat="' + cat.id + '">' +
-        '<a class="board-cat" href="#' + cat.id + '">' + esc(cat.name) + '</a>' +
-        '<span class="board-due">' + (cat.nextDue ? 'Ship by ' + esc(C.fmtDay(cat.nextDue)) : '') + '</span>' +
-        '<div class="tiles">' + cat.topics.map(function (t) {
-          return '<a class="' + tileClass(t) + '" href="#t-' + esc(t.id) + '" data-id="' + esc(t.id) + '" tabindex="-1" aria-label="' + esc(tileLabel(t)) + '"></a>';
-        }).join('') + '</div>' +
-        '<span class="board-bar" aria-hidden="true"><i class="b-done"></i><i class="b-started"></i></span>' +
-        '<span class="board-count" title="Complete topics in this category"></span>' +
-        '</div>';
+    var board = $('board');
+    board.innerHTML = cats.map(function (cat, i) {
+      return '<li><a class="cbar" href="#' + cat.id + '" data-cat="' + cat.id + '" style="--i:' + i + '">' +
+        '<span class="cb-name">' + esc(cat.name) + '</span>' +
+        '<span class="cb-track" aria-hidden="true"><i class="cb-fill"></i></span>' +
+        '<span class="cb-count"></span><span class="cb-due"></span></a></li>';
     }).join('');
-    html += '<div class="legend" aria-hidden="true">' +
-      '<span><i class="tile s0"></i>No games yet</span>' +
-      '<span><i class="tile s1"></i>1 game</span>' +
-      '<span><i class="tile s2"></i>Complete, 2 games</span>' +
-      '<span><i class="tile s0 closed"></i>Date has passed</span></div>';
-    $('board').innerHTML = html;
-    $('board').classList.toggle('is-unknown', !known());
+    void board.offsetWidth; // start new bars from empty so they fill in
+    updateBoard();
   }
   function updateBoard() {
-    $('board').classList.toggle('is-unknown', !known());
-    Array.prototype.forEach.call($('board').querySelectorAll('.tile[data-id]'), function (el) {
-      var t = state.byId[el.dataset.id];
-      if (!t) return;
-      var cls = tileClass(t);
-      if (el.className !== cls) el.className = cls;
-      el.setAttribute('aria-label', tileLabel(t));
-    });
+    var k = known(), unknown = !!state && !k, all = progressOf(topics), bar = $('loadbar');
+    bar.className = 'loadbar' + (unknown ? ' is-unknown' : '') + (k && all.have >= all.need ? ' is-done' : '');
+    bar.style.setProperty('--p', (k ? 100 * all.pct : 0) + '%');
+    $('lb-pct').textContent = k ? C.pctText(all) : '';
+    bar.setAttribute('aria-valuemax', String(all.need));
+    if (k) {
+      bar.setAttribute('aria-valuenow', String(all.have));
+      bar.setAttribute('aria-valuetext', all.have + ' of ' + all.need + ' games in, ' + C.pctText(all));
+    } else {
+      bar.removeAttribute('aria-valuenow');
+      bar.setAttribute('aria-valuetext', state ? 'Count not available' : 'Loading');
+    }
     cats.forEach(function (cat) {
-      var row = $('board').querySelector('.board-row[data-cat="' + cat.id + '"]');
-      if (!row) return;
-      var st = catStats(cat);
-      row.className = 'board-row' + catRisk(cat);
-      row.querySelector('.board-count').textContent = known() ? st.done + '/' + st.total : '';
-      row.querySelector('.b-done').style.width = (known() ? 100 * st.done / st.total : 0) + '%';
-      row.querySelector('.b-started').style.width = (known() ? 100 * st.started / st.total : 0) + '%';
+      var a = $('board').querySelector('.cbar[data-cat="' + cat.id + '"]');
+      if (!a) return;
+      var p = progressOf(cat.topics), done = k && p.have >= p.need;
+      a.className = 'cbar' + catRisk(cat) + (done ? ' is-done' : '') + (unknown ? ' is-unknown' : '');
+      a.style.setProperty('--p', (k ? 100 * p.pct : 0) + '%');
+      a.querySelector('.cb-count').textContent = !k ? '' : done ? 'Complete' : p.have + ' of ' + p.need + ' games';
+      a.querySelector('.cb-due').textContent = catDue(cat);
     });
   }
 
@@ -145,7 +134,6 @@
       '<div class="topic-main">' +
       '<div class="topic-title-row">' + titleRowHtml(t) + '</div>' +
       '<p class="topic-desc">' + esc(t.desc) + '</p>' +
-      C.refsHtml(t.refs) +
       '<div class="games-slot">' + gamesHtml(t) + '</div>' +
       '</div>' +
       '<div class="topic-side">' + sideHtml(t) + '</div>' +
@@ -195,21 +183,24 @@
     var names = Object.keys(cats2);
     return { date: first, total: same.length, done: same.filter(function (t) { return countOf(t.id) >= T; }).length, cat: names.length === 1 ? names[0] : null };
   }
+  // Games that moved the loading bar since ms: each topic's first T games. Extra games on a complete topic don't.
+  function toward(t) { return state.per[t.id].entries.slice(0, T); }
   function gamesSince(ms) {
-    return state.all.filter(function (e) { return e.counted && e.sub.ts >= ms; }).length +
-      topics.reduce(function (n, t) { return n + state.per[t.id].entries.filter(function (e) { return e.pending; }).length; }, 0);
+    return topics.reduce(function (n, t) {
+      return n + toward(t).filter(function (e) { return e.pending || (e.sub.ts || 0) >= ms; }).length;
+    }, 0);
   }
   function renderTotals() {
     if (!state) return;
     var tt = state.totals, n = topics.length;
+    $('hero-title').textContent = n + ' game topics, two games each';
     if (state.unknown) {
-      $('hero-title').textContent = n + ' game topics, two games each';
       $('statline').textContent = '';
       $('paceline').textContent = '';
       return;
     }
-    $('hero-title').textContent = tt.complete + ' of ' + n + ' topics complete';
-    var html = '<b>' + tt.games + '</b> ' + (tt.games === 1 ? 'game' : 'games') + ' submitted. ';
+    var all = progressOf(topics);
+    var html = '<b>' + all.have + '</b> of ' + all.need + ' games in. <b>' + tt.complete + '</b> of ' + n + ' topics complete. ';
     html += tt.empty ? '<b>' + tt.empty + '</b> ' + (tt.empty === 1 ? 'topic still needs' : 'topics still need') + ' a first game.' : 'Every open topic has at least one game.';
     if (tt.missed) html += ' <b>' + tt.missed + '</b> missed ' + (tt.missed === 1 ? 'its date.' : 'their dates.');
     $('statline').innerHTML = html;
@@ -282,37 +273,13 @@
     setTimeout(function () { li.classList.remove('flash'); }, 1700);
   }
 
-  /* ---------- Tooltip on board tiles ---------- */
-  function wireTooltip() {
-    var tip = $('tip'), board = $('board');
-    function show(el) {
-      var t = topics.filter(function (x) { return x.id === el.dataset.id; })[0];
-      if (!t) return;
-      var c = countOf(t.id), tm = C.timing(t);
-      var status = !state ? 'Loading…' : state.unknown ? (tm ? tm.label : 'Open') : c >= T ? 'Complete' : C.countText(c) + (tm ? '. ' + tm.label : '');
-      tip.innerHTML = '<b>' + esc(t.title) + '</b>' + esc(status);
-      var r = el.getBoundingClientRect();
-      tip.classList.add('on');
-      var w = tip.offsetWidth, h = tip.offsetHeight;
-      var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
-      var top = r.top - h - 8 < 8 ? r.bottom + 8 : r.top - h - 8;
-      tip.style.left = left + 'px'; tip.style.top = top + 'px';
-    }
-    function hide() { tip.classList.remove('on'); }
-    board.addEventListener('mouseover', function (e) { var el = e.target.closest('.tile[data-id]'); if (el) show(el); });
-    board.addEventListener('mouseout', function (e) { if (e.target.closest('.tile[data-id]')) hide(); });
-    window.addEventListener('scroll', hide, { passive: true });
-    board.addEventListener('click', function (e) {
-      var cat = e.target.closest('.board-cat');
-      if (cat) {
-        var sec = document.getElementById(cat.getAttribute('href').slice(1));
-        if (sec && sec.hidden) { $('q').value = ''; $('hide-done').checked = false; applyFilters(); }
-        return;
-      }
-      var el = e.target.closest('.tile[data-id]');
-      if (!el) return;
-      hide();
-      revealTopic(el.dataset.id);
+  // A category bar jumps to that category's topics, clearing filters that would hide it.
+  function wireBoard() {
+    $('board').addEventListener('click', function (e) {
+      var a = e.target.closest('.cbar');
+      if (!a) return;
+      var sec = document.getElementById(a.getAttribute('href').slice(1));
+      if (sec && sec.hidden) { $('q').value = ''; $('hide-done').checked = false; applyFilters(); }
     });
   }
 
@@ -331,7 +298,7 @@
   function weeks() {
     var wk = {}, first = weekStart(C.endOfDayPT(C.CFG.programStart)), last = weekStart(Date.now());
     for (var d = first; d <= last; d = new Date(Date.parse(d + 'T00:00:00Z') + 7 * 86400000).toISOString().slice(0, 10)) wk[d] = { games: 0, done: 0 };
-    state.all.forEach(function (e) { if (e.counted && e.sub.ts) { var k = weekStart(e.sub.ts); wk[k] = wk[k] || { games: 0, done: 0 }; wk[k].games += 1; } });
+    topics.forEach(function (t) { toward(t).forEach(function (e) { if (!e.pending && e.sub.ts) { var k = weekStart(e.sub.ts); wk[k] = wk[k] || { games: 0, done: 0 }; wk[k].games += 1; } }); });
     topics.forEach(function (t) { var at = completedAt(t); if (at) { var k = weekStart(at); wk[k] = wk[k] || { games: 0, done: 0 }; wk[k].done += 1; } });
     var keys = Object.keys(wk).sort(), cum = 0;
     return keys.map(function (k) { cum += wk[k].done; return { week: k, games: wk[k].games, done: wk[k].done, cum: cum, current: k === last }; });
@@ -399,7 +366,8 @@
   function weeklySummary() {
     var w = weeks(), cur = w.filter(function (r) { return r.current; })[0], nd = nextDeadline(), risk = atRisk(), cr = creators();
     var out = ['Creator Topic Board, ' + new Date().toLocaleDateString([], { month: 'short', day: 'numeric' }) + ':'];
-    out.push('- ' + state.totals.complete + ' of ' + topics.length + ' topics complete, ' + state.totals.games + ' games counted' + (state.totals.missed ? ', ' + state.totals.missed + ' topics missed their date' : '') + '.');
+    var all = progressOf(topics), extra = state.totals.games - all.have;
+    out.push('- ' + state.totals.complete + ' of ' + topics.length + ' topics complete, ' + all.have + ' of ' + all.need + ' games in' + (extra > 0 ? ' plus ' + plural(extra, 'extra game', 'extra games') + ' on complete topics' : '') + (state.totals.missed ? ', ' + state.totals.missed + ' topics missed their date' : '') + '.');
     out.push('- Last 7 days: ' + plural(gamesSince(Date.now() - 7 * 86400000), 'game', 'games') + '.' + (cur ? ' This week so far: ' + plural(cur.games, 'game', 'games') + ', ' + plural(cur.done, 'topic', 'topics') + ' completed.' : ''));
     if (nd) out.push('- Next deadline ' + C.fmtDay(nd.date) + ': ' + nd.done + ' of ' + nd.total + ' topics done.');
     if (risk.length) out.push('- At risk (due within 14 days): ' + risk.slice(0, 8).map(function (t) { return t.title + ' (' + countOf(t.id) + '/' + T + ', ' + C.fmtDay(t.ship_by) + ')'; }).join('; ') + (risk.length > 8 ? '; +' + (risk.length - 8) + ' more' : '') + '.');
@@ -426,7 +394,7 @@
     html += '<div class="admin-tools"><button class="btn btn-ghost btn-small" type="button" id="copy-discord">Copy a Discord post of open topics</button>' +
       '<button class="btn btn-ghost btn-small" type="button" id="copy-weekly">Copy a weekly summary</button><span class="copy-note" id="copy-note" aria-live="polite"></span></div>';
     var w = weeks().slice(-8).reverse();
-    html += '<h3>Week by week</h3>' + (w.length ? '<div class="table-scroll"><table class="compact"><thead><tr><th>Week of</th><th>Games counted</th><th>Topics completed</th><th>Complete so far</th></tr></thead><tbody>' +
+    html += '<h3>Week by week</h3>' + (w.length ? '<div class="table-scroll"><table class="compact"><thead><tr><th>Week of</th><th>Games in</th><th>Topics completed</th><th>Complete so far</th></tr></thead><tbody>' +
       w.map(function (r) { return '<tr><td class="num">' + esc(C.fmtDay(r.week)) + '</td><td class="num">' + r.games + '</td><td class="num">' + r.done + '</td><td class="num">' + r.cum + '</td></tr>'; }).join('') +
       '</tbody></table></div>' : '<p>No games counted yet.</p>');
     var risk = atRisk();
@@ -548,7 +516,7 @@
       catSig = '';
       buildBoard();
       renderList();
-      wireTooltip();
+      wireBoard();
       if (adminMode) { var a = $('admin'); $('admin-slot').appendChild(a); }
       if (C.params.get('q')) $('q').value = C.params.get('q');
       if (C.params.get('hide') === '1') $('hide-done').checked = true;
@@ -556,7 +524,7 @@
       $('hide-done').addEventListener('change', applyFilters);
       $('refresh-now').addEventListener('click', function () { refresh().catch(function () {}); });
       return refresh().catch(function (err) {
-        setNotice('Progress counts didn’t load. Topics and links are up to date. Try Refresh now at the bottom of the page.');
+        setNotice('Progress counts didn’t load. The topic list is up to date. Try Refresh now at the bottom of the page.');
         if (window.console) console.error(err);
       });
     }, function (err) {

@@ -22,6 +22,15 @@ eq(C.parseGameUrl('https://www.astrocade.com/games/%E0%A4%A/01KZYWEY8Z0EQNGGVB65
 // gviz date in PT, across DST end (Nov 1 2026 2am)
 eq(new Date(C.parseGvizDate('Date(2026,9,28,0,34,39)')).toISOString(), '2026-10-28T07:34:39.000Z', 'PDT date');
 eq(new Date(C.parseGvizDate('Date(2026,10,15,12,0,0)')).toISOString(), '2026-11-15T20:00:00.000Z', 'PST date');
+// loading bar: games toward the goal, extra games on a complete topic don't add
+const per = { a: { count: 3 }, b: { count: 1 }, c: { count: 0 } };
+const pr = C.progress([{ id: 'a' }, { id: 'b' }, { id: 'c' }], per);
+eq([pr.have, pr.need], [3, 6], 'progress caps each topic at two games');
+eq(C.pctText(pr), '50%', 'percent text');
+eq(C.pctText(C.progress([{ id: 'x' }], null)), '0%', 'no counts means 0%');
+eq(C.pctText({ have: 1, need: 200, pct: 0.005 }), '1%', 'one game shows 1%, not 0%');
+eq(C.pctText({ have: 199, need: 200, pct: 0.995 }), '99%', '199 of 200 shows 99%, not 100%');
+eq(C.pctText({ have: 200, need: 200, pct: 1 }), '100%', 'all in shows 100%');
 // timing
 const t = { ship_by: '2026-11-15', event: '2026-11-26', event_name: 'Thanksgiving' };
 eq(C.timing(t, Date.parse('2026-10-28T08:00:00Z')).label, 'Ship by Nov 15', 'open');

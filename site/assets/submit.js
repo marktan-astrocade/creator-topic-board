@@ -80,7 +80,7 @@
     var mine = C.getHistory().filter(function (h) { return h.topicId === t.id; }).length;
     if (!warn && mine && C.CFG.onePerCreator) warn = 'You already sent a game for this topic from this device. Only one game per creator counts on each topic, so pick another topic if you can.';
     card.innerHTML = '<div class="tc-head"><span class="tc-cat">' + esc(t.category) + (tm ? ' <span class="chip ' + C.chipClass(tm) + '">' + esc(tm.label) + '</span>' : '') + '</span>' + status + '</div>' +
-      '<p>' + esc(t.desc) + '</p>' + C.refsHtml(t.refs) + (warn ? '<p class="warn">' + esc(warn) + '</p>' : '') +
+      '<p>' + esc(t.desc) + '</p>' + (warn ? '<p class="warn">' + esc(warn) + '</p>' : '') +
       (canClaim ? '<div class="claim" id="claim-box">' + (claimedHere(t.id) ? '<p class="claim-note">You told others you’re building this.</p>' :
         '<button class="linkish" type="button" id="claim-btn">Not finished yet? Tell others you’re building this</button>') + '</div>' : '');
     card.hidden = false;
@@ -144,11 +144,9 @@
     if (!known()) line = 'Your game for “' + t.title + '” was sent. It shows on the board once counts are live.';
     else if (full) line = before >= T ? '“' + t.title + '” now has ' + after + ' games.' : '“' + t.title + '” now has ' + T + ' of ' + T + ' games. This topic is complete.';
     else line = '“' + t.title + '” now has ' + after + ' of ' + T + ' games. One more game completes it.';
-    var segs = '';
-    for (var i = 0; i < T; i++) segs += '<i class="' + (i < before ? 'on' : '') + '"></i>';
     var box = $('success');
     box.innerHTML = '<h2>' + (known() ? 'Game submitted' : 'Game sent') + '</h2><p>' + esc(line) + '</p>' +
-      (known() ? '<div class="big-meter" id="big-meter" aria-hidden="true">' + segs + '</div>' : '') +
+      (known() ? '<div class="big-meter" id="big-meter" aria-hidden="true" style="--p:' + Math.min(before, T) / T * 100 + '%"><i></i></div>' : '') +
       '<p class="confirm" id="confirm"><span class="spinner" aria-hidden="true"></span>Adding it to the board…</p>' +
       '<p class="game-preview">Your game: <a href="' + esc(g.url) + '" target="_blank" rel="noopener noreferrer">' + esc(C.titleFromSlug(g.slug)) + '</a></p>' +
       '<p class="refcode">Reference code <code>' + esc(subId) + '</code>. Quote it if you ask the community team about this submission.</p>' +
@@ -160,9 +158,8 @@
     setTimeout(function () {
       var m = $('big-meter');
       if (!m) return;
-      var segsEl = m.querySelectorAll('i');
-      if (segsEl[Math.min(before, T - 1)]) segsEl[Math.min(before, T - 1)].classList.add('on');
-      if (full) setTimeout(function () { m.classList.add('full'); }, 450);
+      m.style.setProperty('--p', Math.min(after, T) / T * 100 + '%');
+      if (full) setTimeout(function () { m.classList.add('full'); }, 700);
     }, 250);
     $('again').addEventListener('click', resetForm);
   }

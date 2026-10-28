@@ -1,7 +1,8 @@
 # Creator Topic Board
 
 A board of 100 game topics for Astrocade creators, and a form to submit games for them.
-A topic is complete once it has two games. Complete topics grey out on the board.
+A topic is complete once it has two games. A loading bar at the top fills as games come in, with one bar per
+category under it. Complete topics grey out in the list.
 
 - Board: https://marktan-astrocade.github.io/creator-topic-board/
 - Form: https://marktan-astrocade.github.io/creator-topic-board/submit.html
@@ -61,14 +62,13 @@ email as Editor. Giving edit access doesn't make anything more public.
 
 ## Editing topics
 
-Topics live in `scripts/topics_src.py`, reference links in `scripts/refs.json`. Then run:
+Topics live in `scripts/topics_src.py`. Then run:
 
 ```bash
 python3 scripts/topics_src.py && python3 scripts/build_topics.py
 ```
 
-The build refuses to write if a topic has fewer than two links or more than three, if there aren't exactly
-100 topics, or if a word check fails. Commit and push, and the site redeploys in about a minute.
+The build refuses to write if there aren't exactly 100 topics or if a word check fails. Commit and push, and the site redeploys in about a minute.
 
 Keep topic ids the same once games are submitted: the Sheet stores the id, not the title.
 

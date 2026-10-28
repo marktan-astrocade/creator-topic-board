@@ -26,8 +26,6 @@ def problems_in(topics):
     out = []
     for t in topics:
         fields = {'category': t['category'], 'title': t['title'], 'desc': t['desc']}
-        for r in t.get('refs', []):
-            fields['label ' + r['url'][:50]] = r['label']
         for k, v in fields.items():
             for pat, kind in ((place, 'place word'), (brand, 'brand name')):
                 m = pat.search(v)
