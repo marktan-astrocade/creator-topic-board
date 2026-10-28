@@ -1,0 +1,902 @@
+[
+ {
+  "id": "turkey-thaw",
+  "category": "Thanksgiving",
+  "title": "Turkey Thaw Panic",
+  "desc": "It's the night before Thanksgiving and the turkey is still frozen solid. Rotate it through the sink, fridge and hair dryer to thaw it in time without serving it raw.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "turkey-carving",
+  "category": "Thanksgiving",
+  "title": "Turkey Carving Slicer",
+  "desc": "Slice the roast turkey along the dotted lines while Grandma watches from across the table. Clean cuts earn compliments, mangled slices earn sighs.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "plate-stacker",
+  "category": "Thanksgiving",
+  "title": "Thanksgiving Plate Stacker",
+  "desc": "Pile turkey, stuffing, mashed potatoes, green bean casserole and cranberry sauce onto one paper plate before it buckles. Gravy flows downhill.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "parade-balloon",
+  "category": "Thanksgiving",
+  "title": "Parade Balloon Wrangler",
+  "desc": "Steer a giant cartoon balloon down a big-city parade route in gusty wind. Keep it off the lampposts and the crowd cheering.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "turkey-trot",
+  "category": "Thanksgiving",
+  "title": "Turkey Trot 5K",
+  "desc": "Run the Thanksgiving morning 5K in a turkey hat. Dodge strollers, dogs and costumed runners to beat your neighbor to the finish line.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "run-turkey-run",
+  "category": "Thanksgiving",
+  "title": "Run, Turkey, Run",
+  "desc": "You are the turkey, and it's the week before Thanksgiving. Escape the farm, dodge the farmer and hide in plain sight until the holiday passes.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "food-coma-football",
+  "category": "Thanksgiving",
+  "title": "Food Coma Football",
+  "desc": "Stay awake on the couch through the Thanksgiving football game. Tap to fight the food coma. Every touchdown buys you a few more seconds.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "pie-slicer",
+  "category": "Thanksgiving",
+  "title": "Fair Pie Slices",
+  "desc": "Cut the pumpkin pie into equal slices for nine cousins. Uneven slices start a family feud, perfect slices earn whipped cream.",
+  "ship_by": "2026-11-15",
+  "event": "2026-11-26",
+  "event_name": "Thanksgiving"
+ },
+ {
+  "id": "doorbuster-dash",
+  "category": "Holiday shopping",
+  "title": "Doorbuster Dash",
+  "desc": "Doors open at 5 a.m. on Black Friday. Sprint the big-box aisles, grab the half-price TV and dodge the stampede of shopping carts.",
+  "ship_by": "2026-11-20",
+  "event": "2026-11-30",
+  "event_name": "Cyber Monday"
+ },
+ {
+  "id": "cyber-monday-checkout",
+  "category": "Holiday shopping",
+  "title": "Cyber Monday Checkout",
+  "desc": "Deals flash on screen for a second. Tap add to cart before they sell out and check out before the countdown hits zero.",
+  "ship_by": "2026-11-20",
+  "event": "2026-11-30",
+  "event_name": "Cyber Monday"
+ },
+ {
+  "id": "free-sample-sprint",
+  "category": "Holiday shopping",
+  "title": "Free Sample Sprint",
+  "desc": "Hit every free-sample stand in a giant warehouse store before closing time. Grab every sample, buy nothing, and don't get caught going back twice.",
+  "ship_by": "2026-11-20",
+  "event": "2026-11-30",
+  "event_name": "Cyber Monday"
+ },
+ {
+  "id": "mall-parking",
+  "category": "Holiday shopping",
+  "title": "Mall Parking Hunter",
+  "desc": "It's the holiday rush and nobody is leaving. Circle the packed mall lot and steal the open spot before another minivan does.",
+  "ship_by": "2026-11-20",
+  "event": "2026-11-30",
+  "event_name": "Cyber Monday"
+ },
+ {
+  "id": "returns-line",
+  "category": "Holiday shopping",
+  "title": "Returns Line Survivor",
+  "desc": "It's the day after Christmas and the returns line wraps around the store. Inch forward, juggle receipts and gift bags, and don't lose your spot.",
+  "ship_by": "2026-12-20",
+  "event": "2026-12-27",
+  "event_name": "Returns week"
+ },
+ {
+  "id": "advent-calendar",
+  "category": "Winter holidays",
+  "title": "24-Day Advent Calendar",
+  "desc": "A new door opens every day of December with a tiny game behind it. Built to bring players back every day until Christmas Eve.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-24",
+  "event_name": "Christmas Eve"
+ },
+ {
+  "id": "cookie-exchange",
+  "category": "Winter holidays",
+  "title": "Cookie Exchange Bake-Off",
+  "desc": "Bake and decorate holiday cookies, then trade plates at the neighborhood cookie exchange. Keep a few hidden for Santa.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "ugly-sweater",
+  "category": "Winter holidays",
+  "title": "Ugly Sweater Contest",
+  "desc": "Design the tackiest holiday sweater with reindeer, pom-poms and blinking lights, then strut it at the office party for the crowd vote.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "tree-lot-tycoon",
+  "category": "Winter holidays",
+  "title": "Christmas Tree Lot Tycoon",
+  "desc": "Run a roadside Christmas tree lot. Haggle prices, net the trees and tie them onto car roofs before the snow comes.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "tree-on-roof",
+  "category": "Winter holidays",
+  "title": "Tree on the Roof",
+  "desc": "Drive home with a giant Christmas tree strapped to the car roof. Take the turns gently or it slides off into traffic.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "gingerbread-house",
+  "category": "Winter holidays",
+  "title": "Gingerbread House Builder",
+  "desc": "Stack gingerbread walls and a roof with icing glue, then pile on the candy. Build it tall before it collapses.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "porch-pirate-defense",
+  "category": "Winter holidays",
+  "title": "Porch Pirate Defense",
+  "desc": "Protect the packages on your front porch with sprinklers, a barking dog and glitter bombs. Tower defense on a snowy suburban street.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "out-light-neighbors",
+  "category": "Winter holidays",
+  "title": "Out-Light the Neighbors",
+  "desc": "Cover your house in holiday lights to beat the neighbor's display. Add too many and you blow the breaker for the whole block.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "chimney-drop",
+  "category": "Winter holidays",
+  "title": "Chimney Drop",
+  "desc": "Slide down ten chimneys and fill the stockings by the fireplace without waking the dog or the kids.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "sledding-hill",
+  "category": "Winter holidays",
+  "title": "Sledding Hill Wipeout",
+  "desc": "Ragdoll sled run down a snowy neighborhood hill. Dodge the mailbox, hit the jump and beat your best distance.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-25",
+  "event_name": "Christmas"
+ },
+ {
+  "id": "dreidel-latke",
+  "category": "Winter holidays",
+  "title": "Dreidel Spin and Latke Flip",
+  "desc": "Spin the dreidel to win chocolate coins, then flip latkes in the pan before they burn. Hanukkah runs Dec 4 to 12 this year.",
+  "ship_by": "2026-12-01",
+  "event": "2026-12-12",
+  "event_name": "Hanukkah"
+ },
+ {
+  "id": "ball-drop",
+  "category": "Winter holidays",
+  "title": "New Year's Ball Drop",
+  "desc": "Time your tap to the midnight countdown as the giant crystal ball drops over Times Square. Perfect timing sets off the confetti.",
+  "ship_by": "2026-12-20",
+  "event": "2026-12-31",
+  "event_name": "New Year's Eve"
+ },
+ {
+  "id": "rivalry-tug",
+  "category": "Big game season",
+  "title": "Rivalry Week Tug-of-War",
+  "desc": "Two rival college campuses, one rope. Tap in rhythm with your marching band to drag the other side across the line during rivalry week.",
+  "ship_by": "2026-11-20",
+  "event": "2026-11-28",
+  "event_name": "Rivalry weekend"
+ },
+ {
+  "id": "tailgate-grill",
+  "category": "Big game season",
+  "title": "Tailgate Grill Rush",
+  "desc": "Burgers, hot dogs and corn on the grill in a stadium parking lot. Feed the whole tailgate before kickoff without burning anything.",
+  "ship_by": "2027-01-31",
+  "event": "2027-02-14",
+  "event_name": "The Big Game"
+ },
+ {
+  "id": "playoff-bracket",
+  "category": "Big game season",
+  "title": "Playoff Bracket Builder",
+  "desc": "Seed twelve college teams into the playoff bracket and watch it bust. Byes, upsets and a title game in the desert.",
+  "ship_by": "2026-12-12",
+  "event": "2027-01-25",
+  "event_name": "Title game"
+ },
+ {
+  "id": "christmas-dunk-contest",
+  "category": "Big game season",
+  "title": "Christmas Day Dunk Contest",
+  "desc": "Basketball takes over Christmas Day. Throw down holiday dunks in a Santa jersey and win the crowd's score.",
+  "ship_by": "2026-12-15",
+  "event": "2026-12-25",
+  "event_name": "Christmas Day"
+ },
+ {
+  "id": "halftime-stage",
+  "category": "Big game season",
+  "title": "Halftime Stage Builder",
+  "desc": "Roll the stage onto the field and set up the lights before the halftime clock runs out. The show starts whether you're ready or not.",
+  "ship_by": "2027-01-31",
+  "event": "2027-02-14",
+  "event_name": "The Big Game"
+ },
+ {
+  "id": "snack-table-defense",
+  "category": "Big game season",
+  "title": "Big Game Snack Defense",
+  "desc": "Guard the wings, chips and seven-layer dip from the dog and the cousins until the final whistle.",
+  "ship_by": "2027-01-31",
+  "event": "2027-02-14",
+  "event_name": "The Big Game"
+ },
+ {
+  "id": "valentines-big-game",
+  "category": "Big game season",
+  "title": "Big Game on Valentine's Day",
+  "desc": "The biggest football game of the year lands on Feb 14. Merge hearts and footballs to throw the ultimate watch party.",
+  "ship_by": "2027-01-31",
+  "event": "2027-02-14",
+  "event_name": "The Big Game"
+ },
+ {
+  "id": "field-goal-kicker",
+  "category": "Sports",
+  "title": "Field Goal Kicker",
+  "desc": "Flick to kick from 20, then 40, then 60 yards. The wind shifts every kick and the crowd boos every miss.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "quarterback-dime",
+  "category": "Sports",
+  "title": "Quarterback Dime",
+  "desc": "Drop back and hit a receiver in stride before the linebacker closes in. Lead the throw perfectly for the touchdown.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "home-run-showdown",
+  "category": "Sports",
+  "title": "Home Run Showdown",
+  "desc": "Time your swing to send baseballs into the bleachers. Hit the scoreboard for a bonus, hit the parking lot for glory.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "tee-ball",
+  "category": "Sports",
+  "title": "Tee-Ball Chaos",
+  "desc": "Kids' tee-ball: hit off the tee, run the bases the right way, and ignore the outfielders picking dandelions. Dad is filming.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "slap-shot",
+  "category": "Sports",
+  "title": "Slap Shot Showdown",
+  "desc": "Five shots, five holes. Pick your corner and beat the hockey goalie before the horn.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "buzzer-beater",
+  "category": "Sports",
+  "title": "Buzzer Beater",
+  "desc": "0.8 seconds left, down by two. Catch, turn and shoot the three for the win while the gym holds its breath.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "hot-dog-contest",
+  "category": "Sports",
+  "title": "Hot Dog Eating Contest",
+  "desc": "Tap to eat as many hot dogs as you can in ten minutes at the boardwalk contest. Dunk the buns, beat the champ, claim the belt.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "backyard-cornhole",
+  "category": "Sports",
+  "title": "Backyard Cornhole",
+  "desc": "Toss bean bags at the slanted board at a backyard cookout. Sink it for three, knock your rival's bag off for revenge.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "monster-truck",
+  "category": "Sports",
+  "title": "Monster Truck Freestyle",
+  "desc": "Crush a row of junk cars, nail the backflip and win the stadium crowd before the clock runs out.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "oval-stock-car",
+  "category": "Sports",
+  "title": "Oval Track Stock Car",
+  "desc": "Draft, bump and pass on a high-banked oval. Two hundred laps of left turns squeezed into sixty seconds.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "cheer-pyramid",
+  "category": "Sports",
+  "title": "Cheer Pyramid Stack",
+  "desc": "Stack the cheer squad into a pyramid and hold it steady through the routine. One wobble and it's a pile on the mat.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "mascot-race",
+  "category": "Sports",
+  "title": "Ballpark Mascot Race",
+  "desc": "Race as a giant hot dog, ketchup bottle or mustard around the warning track between innings. Trip the leader for the win.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "burrito-bowl-line",
+  "category": "Food & drink",
+  "title": "Burrito Bowl Line Tycoon",
+  "desc": "Run a fast-casual burrito bowl line. Customers judge every scoop size: \"They said extra rice.\" Speed up, upgrade the line and keep it moving.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "drive-thru-rush",
+  "category": "Food & drink",
+  "title": "Drive-Thru Rush",
+  "desc": "Six cars, two headsets, one fryer. Take orders at the speaker, bag them right and beat the window timer.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "waffle-diner",
+  "category": "Food & drink",
+  "title": "3 A.M. Waffle Diner",
+  "desc": "It's 3 a.m. at the 24-hour waffle diner. Cook, plate and slide orders down the counter while the late-night chaos walks in.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "gas-station-haul",
+  "category": "Food & drink",
+  "title": "Mega Gas Station Haul",
+  "desc": "Fill your arms at a giant highway gas station: jerky wall, brisket sandwiches, fudge, souvenir T-shirts. The road trip leaves in 90 seconds.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "pumpkin-spice-barista",
+  "category": "Food & drink",
+  "title": "Pumpkin Spice Barista",
+  "desc": "The line is out the door and every order is a different pumpkin spice drink. Pump, steam, misspell the name, hand it off.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "county-fair-fryer",
+  "category": "Food & drink",
+  "title": "County Fair Deep-Fry",
+  "desc": "Dip anything into the fair fryer: butter, cookies, a candy bar, a pickle. Rate the result and chase the blue ribbon.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "tipping-screen",
+  "category": "Food & drink",
+  "title": "Tipping Screen Panic",
+  "desc": "The tablet spins around: 18%, 20%, 25% or custom? Pick fast while the barista watches you decide.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "brisket-pit",
+  "category": "Food & drink",
+  "title": "Brisket Pit Master",
+  "desc": "Keep the smoker at the right temperature for twelve hours squeezed into sixty seconds. Wrap at the stall, slice it for the judges.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "lemonade-stand",
+  "category": "Food & drink",
+  "title": "Lemonade Stand Tycoon",
+  "desc": "Set the price, add ice and sell lemonade on a hot suburban street. Expand to a bigger stand before the homeowners association shows up.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "cookie-stand",
+  "category": "Food & drink",
+  "title": "Scout Cookie Stand",
+  "desc": "Sell boxes of cookies at a folding table outside the grocery store. Pitch shoppers, make change and hit the troop goal.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "dollar-slice",
+  "category": "Food & drink",
+  "title": "Dollar Slice Fold",
+  "desc": "Fold the giant pizza slice and speed-walk the crowded sidewalk to the subway without dripping grease on anyone.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "subway-rush",
+  "category": "City life",
+  "title": "Subway Rush Hour",
+  "desc": "Pack commuters into the subway car before the doors close. Stand clear of the closing doors, please.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "yellow-cab",
+  "category": "City life",
+  "title": "Yellow Cab Crosstown",
+  "desc": "Weave a yellow taxi through gridlocked avenues, honk at the bike messengers and drop the fare before the meter maxes out.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "bodega-cat",
+  "category": "City life",
+  "title": "Bodega Cat Merge",
+  "desc": "Merge sleepy corner-store cats on the chip racks, deli counter and lottery machine to build the ultimate bodega.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "pigeon-street-cart",
+  "category": "City life",
+  "title": "Pigeon vs Hot Dog Cart",
+  "desc": "You're a city pigeon. Snatch pretzel crumbs and dropped fries from the street-cart line without getting shooed.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "times-square-shuffle",
+  "category": "City life",
+  "title": "Times Square Shuffle",
+  "desc": "Cross Times Square at rush hour. Dodge costumed characters, flyer guys and tourists who stop dead for photos.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "wedding-chapel",
+  "category": "City life",
+  "title": "Neon Wedding Chapel",
+  "desc": "Run a 24-hour drive-through wedding chapel on the Las Vegas Strip. Rings, flowers, a sparkly-suited officiant, next couple please.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "freeway-merge",
+  "category": "City life",
+  "title": "Freeway Merge at 5 PM",
+  "desc": "Merge across six lanes of rush-hour freeway traffic to make your exit. Blinkers are a suggestion.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "stunt-double",
+  "category": "City life",
+  "title": "Hollywood Stunt Double",
+  "desc": "Do the movie stunts on a studio backlot: car flips, high falls and explosions, until the director yells cut.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "neon-beach-jet-ski",
+  "category": "City life",
+  "title": "Neon Beach City Jet Ski",
+  "desc": "Race a jet ski past pastel hotels, palm trees and causeway bridges in a neon beach city at sunset. Bright 1980s colors, big waves, tight turns.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "route-66",
+  "category": "Road trips & outdoors",
+  "title": "Route 66 Road Trip",
+  "desc": "Drive the old highway past neon motels, diners and giant roadside attractions. Manage gas, snacks and the are-we-there-yet meter.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "campsite-bear",
+  "category": "Road trips & outdoors",
+  "title": "Campsite Bear Escape",
+  "desc": "You left food in the tent at a national park. Get the cooler into the bear box before the bear finds it.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "tornado-chaser",
+  "category": "Road trips & outdoors",
+  "title": "Tornado Chaser",
+  "desc": "Drive a pickup across the open plains to get close enough to film the twister, then get out fast.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "geyser-photo",
+  "category": "Road trips & outdoors",
+  "title": "Geyser Photo Timing",
+  "desc": "Wait for the famous geyser to erupt and snap the perfect photo. Don't step off the boardwalk.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "gator-golf",
+  "category": "Road trips & outdoors",
+  "title": "Swamp Gator Golf",
+  "desc": "Play mini golf on a swampy course where the water hazards have alligators in them. Hit it in the water and it's gone.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "ice-fishing",
+  "category": "Road trips & outdoors",
+  "title": "Ice Fishing Shack",
+  "desc": "Drill a hole in the frozen lake, drop a line and reel in fish before your fingers freeze.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "rv-parking",
+  "category": "Road trips & outdoors",
+  "title": "RV Parking Pro",
+  "desc": "Back a huge RV into a tight campground spot while every camper in the park watches.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "cafeteria-tray",
+  "category": "School & campus",
+  "title": "Cafeteria Tray Balance",
+  "desc": "Carry pizza, chocolate milk and jiggly gelatin through the crowded lunchroom without dropping a thing.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "school-bus-route",
+  "category": "School & campus",
+  "title": "School Bus Route",
+  "desc": "Drive the yellow school bus and pick up every kid on time. Swing out the stop-sign arm or the cars blow right past.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "locker-combo",
+  "category": "School & campus",
+  "title": "Locker Combo Rush",
+  "desc": "Three numbers, four minutes between classes. Spin the dial right, left, right and grab your books before the bell.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "hall-pass",
+  "category": "School & campus",
+  "title": "Hall Pass Stealth",
+  "desc": "Sneak to the vending machine without a hall pass. Hide from the hall monitor around every corner.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "spirit-week",
+  "category": "School & campus",
+  "title": "Spirit Week Outfits",
+  "desc": "Pajama Day, Decades Day, Twin Day, Color Wars. Dress for each day and win points for your class.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "homecoming-float",
+  "category": "School & campus",
+  "title": "Homecoming Float Builder",
+  "desc": "Build your class's homecoming float with tissue paper and chicken wire before the parade starts.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "dorm-packing",
+  "category": "School & campus",
+  "title": "Dorm Room Packing Puzzle",
+  "desc": "Fit the mini fridge, futon and lofted bed into a tiny dorm room on move-in day.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "science-fair",
+  "category": "School & campus",
+  "title": "Science Fair Volcano",
+  "desc": "Mix baking soda and vinegar just right for the judges at the school science fair. Too much and the gym floods.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "snow-day",
+  "category": "School & campus",
+  "title": "Snow Day Watch",
+  "desc": "It's 5 a.m. and the snow is falling. Watch the school closings scroll across the TV and hope your school makes the list.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "promposal",
+  "category": "School & campus",
+  "title": "Promposal Planner",
+  "desc": "Plan the most over-the-top prom invitation: signs, balloons, a flash mob. Will they say yes?",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "lawn-stripes",
+  "category": "Suburbs & everyday life",
+  "title": "Perfect Lawn Stripes",
+  "desc": "Mow perfect stripes into the front lawn before the homeowners association letter arrives.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "leaf-blower-war",
+  "category": "Suburbs & everyday life",
+  "title": "Leaf Blower War",
+  "desc": "Blow the fall leaves into the neighbor's yard faster than they can blow them back.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "garage-sale",
+  "category": "Suburbs & everyday life",
+  "title": "Garage Sale Haggler",
+  "desc": "Price your junk, haggle with early-bird shoppers and clear the driveway by noon.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "dmv-line",
+  "category": "Suburbs & everyday life",
+  "title": "DMV Line Simulator",
+  "desc": "Now serving number 3. You are number 147. Survive the wait, fill the forms out right and smile for the worst photo ever.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "airport-security",
+  "category": "Suburbs & everyday life",
+  "title": "Airport Security Bins",
+  "desc": "Shoes off, laptop out, liquids in the little bag. Load the bins fast and don't hold up the line.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "self-checkout",
+  "category": "Suburbs & everyday life",
+  "title": "Self-Checkout Showdown",
+  "desc": "Scan, bag and pay before the machine says unexpected item in the bagging area.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "snow-shovel",
+  "category": "Suburbs & everyday life",
+  "title": "Driveway Shovel Race",
+  "desc": "Clear the driveway before the snowplow comes by and buries the end of it again.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "hoa-inspector",
+  "category": "Suburbs & everyday life",
+  "title": "HOA Inspector",
+  "desc": "Walk the cul-de-sac with a clipboard and spot every violation: plastic flamingos, tall grass, the wrong mailbox color.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "wagon-trail",
+  "category": "Wild West & history",
+  "title": "Wagon Trail West",
+  "desc": "Lead a covered wagon west. Pick supplies, ford rivers and keep everyone fed and healthy until you reach the coast.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "pony-express",
+  "category": "Wild West & history",
+  "title": "Pony Express Relay",
+  "desc": "Gallop the mail between relay stations and swap horses without stopping.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "gold-rush",
+  "category": "Wild West & history",
+  "title": "Gold Rush Panning",
+  "desc": "Shake the pan in the creek and keep the gold flakes. Strike it rich before the claim runs dry.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "saloon-slide",
+  "category": "Wild West & history",
+  "title": "Saloon Drink Slide",
+  "desc": "Slide sarsaparillas down the long saloon bar to the right cowboy. Push too hard and the glass shatters.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "rodeo-bull",
+  "category": "Wild West & history",
+  "title": "Rodeo Bull Ride",
+  "desc": "Hang on for eight seconds at the rodeo. Lean against every buck and spin while the clown stands by.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "moon-landing",
+  "category": "Wild West & history",
+  "title": "Moon Landing 1969",
+  "desc": "Pilot the lunar module down to the surface while the fuel gauge drops. Land softly and plant the flag.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "streamer-marathon",
+  "category": "Pop culture & trends",
+  "title": "Streamer Challenge Marathon",
+  "desc": "Invent your own streamer, then survive one hundred over-the-top challenges in a giant warehouse to win the grand-prize car.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "bracelet-trade",
+  "category": "Pop culture & trends",
+  "title": "Friendship Bracelet Trading",
+  "desc": "Trade beaded friendship bracelets with fans on the stadium concourse before the concert starts.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "pop-star-setlist",
+  "category": "Pop culture & trends",
+  "title": "Pop Star Tour Setlist",
+  "desc": "Invent your own pop star and play their stadium tour one era at a time. Tap to the beat and swap costumes on cue.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "price-guess-show",
+  "category": "Pop culture & trends",
+  "title": "Guess the Price Game Show",
+  "desc": "Guess the prices of everyday groceries under bright studio lights, then spin a giant prize wheel while the audience shouts numbers.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ },
+ {
+  "id": "talent-show",
+  "category": "Pop culture & trends",
+  "title": "Talent Show Showstopper",
+  "desc": "Step onto a TV talent show stage, nail your act and bring all four judges to their feet for a standing ovation. Confetti if you do.",
+  "ship_by": null,
+  "event": null,
+  "event_name": null
+ }
+]
